@@ -1,1 +1,1 @@
-ERROR: [youtube] uczAMkz6gto: No video formats found!; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+Command '['streamlink', '--stream-url', 'https://www.youtube.com/watch?v=uczAMkz6gto', 'best']' returned non-zero exit status 1.
