@@ -1,10 +1,10 @@
-
 import subprocess
 
 url = open("youtube.txt").read().strip()
 
 cmd = [
     "yt-dlp",
+    "--cookies", "cookies.txt",
     "-g",
     url
 ]
@@ -14,7 +14,7 @@ try:
 
     m3u8 = ""
     for line in out:
-        if "m3u8" in line:
+        if "m3u8" in line or "googlevideo" in line:
             m3u8 = line
             break
 
