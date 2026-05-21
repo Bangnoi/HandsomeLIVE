@@ -37,4 +37,5 @@ jobs:
 
           git commit -m "update stream" || echo "No changes"
 
+          git pull --rebase
           git push
