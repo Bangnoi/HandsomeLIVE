@@ -22,8 +22,8 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Install streamlink
-        run: pip install streamlink
+      - name: Install yt-dlp
+        run: pip install yt-dlp
 
       - name: Run script
         run: python main.py
