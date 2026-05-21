@@ -1,35 +1,22 @@
-import yt_dlp
+import subprocess
 
 url = open("youtube.txt").read().strip()
 
-ydl_opts = {
-    'quiet': True,
-    'cookiefile': 'cookies.txt',
-    'extractor_args': {
-        'youtube': {
-            'player_client': ['android']
-        }
-    },
-    'format': 'b'
-}
-
 try:
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        info = ydl.extract_info(url, download=False)
+    result = subprocess.check_output(
+        [
+            "streamlink",
+            "--stream-url",
+            url,
+            "best"
+        ],
+        text=True
+    ).strip()
 
-        stream_url = info.get("url")
+    with open("live.m3u8", "w") as f:
+        f.write(result)
 
-        if not stream_url:
-            formats = info.get("formats", [])
-            for f in formats:
-                if f.get("url"):
-                    stream_url = f["url"]
-                    break
-
-        with open("live.m3u8", "w") as f:
-            f.write(stream_url or "#NO_URL")
-
-        print(stream_url)
+    print(result)
 
 except Exception as e:
 
