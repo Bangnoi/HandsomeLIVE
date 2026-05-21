@@ -4,7 +4,7 @@ url = open("youtube.txt").read().strip()
 
 ydl_opts = {
     'quiet': True,
-    'nocheckcertificate': True,
+    'cookiefile': 'cookies.txt',
     'format': 'best'
 }
 
