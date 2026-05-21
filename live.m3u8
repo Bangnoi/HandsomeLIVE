@@ -1,1 +1,1 @@
-Command '['yt-dlp', '-g', 'https://www.youtube.com/watch?v=uczAMkz6gto']' returned non-zero exit status 1.
+Command '['yt-dlp', '--cookies', 'cookies.txt', '-g', 'https://www.youtube.com/watch?v=uczAMkz6gto']' returned non-zero exit status 1.
