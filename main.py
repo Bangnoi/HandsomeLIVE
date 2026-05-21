@@ -4,7 +4,7 @@ url = open("youtube.txt").read().strip()
 
 try:
     result = subprocess.check_output(
-        ["yt-dlp", "-g", "--live-from-start", url],
+        ["yt-dlp", "-g", url],
         text=True
     ).strip()
 
@@ -14,5 +14,8 @@ try:
     print("SUCCESS")
 
 except Exception as e:
-    print("ERROR")
+
+    with open("live.m3u8", "w") as f:
+        f.write("#ERROR")
+
     print(e)
