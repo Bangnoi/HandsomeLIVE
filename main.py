@@ -1,26 +1,24 @@
+
 import subprocess
 
 url = open("youtube.txt").read().strip()
 
+cmd = [
+    "yt-dlp",
+    "-g",
+    url
+]
+
 try:
-    result = subprocess.check_output(
-        [
-            "streamlink",
-            "--stream-url",
-            url,
-            "best"
-        ],
-        text=True
-    ).strip()
+    out = subprocess.check_output(cmd).decode().splitlines()
 
-    with open("live.m3u8", "w") as f:
-        f.write(result)
+    m3u8 = ""
+    for line in out:
+        if "m3u8" in line:
+            m3u8 = line
+            break
 
-    print(result)
+    open("live.m3u8", "w").write(m3u8)
 
 except Exception as e:
-
-    with open("live.m3u8", "w") as f:
-        f.write(str(e))
-
-    print(e)
+    open("live.m3u8", "w").write(str(e))
