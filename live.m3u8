@@ -1,1 +1,1 @@
-Command '['streamlink', '--stream-url', 'https://www.youtube.com/watch?v=uczAMkz6gto', 'best']' returned non-zero exit status 1.
+Command '['yt-dlp', '-g', 'https://www.youtube.com/watch?v=uczAMkz6gto']' returned non-zero exit status 1.
